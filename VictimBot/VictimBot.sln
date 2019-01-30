@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VictimBot", "VictimBot\VictimBot.csproj", "{615CC99E-CB03-4AC8-8083-07BD78DAA375}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VictimBot.Shared", "VictimBot.Shared\VictimBot.Shared.csproj", "{DFE48777-9399-4DB9-9760-19DFE237F79A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{615CC99E-CB03-4AC8-8083-07BD78DAA375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{615CC99E-CB03-4AC8-8083-07BD78DAA375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{615CC99E-CB03-4AC8-8083-07BD78DAA375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{615CC99E-CB03-4AC8-8083-07BD78DAA375}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFE48777-9399-4DB9-9760-19DFE237F79A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFE48777-9399-4DB9-9760-19DFE237F79A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFE48777-9399-4DB9-9760-19DFE237F79A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFE48777-9399-4DB9-9760-19DFE237F79A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00B3957B-32C0-4A61-AF37-8C2691FDC197}
+	EndGlobalSection
+EndGlobal
