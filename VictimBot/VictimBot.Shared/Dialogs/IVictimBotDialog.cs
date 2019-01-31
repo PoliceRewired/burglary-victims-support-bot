@@ -6,9 +6,9 @@ using VictimBot.Shared.State;
 
 namespace VictimBot.Shared.Dialogs
 {
-    public interface IVictimBotWaterfallDialog
+    public interface IVictimBotDialog
     {
-        WaterfallDialog Dialog { get; }
+        Dialog Dialog { get; }
 
         void RegisterWith(DialogSet dialogs);
     }

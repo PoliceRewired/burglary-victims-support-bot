@@ -8,13 +8,13 @@ using VictimBot.Shared.State;
 
 namespace VictimBot.Shared.Dialogs
 {
-    public abstract class VictimBotWaterfallDialog : IVictimBotWaterfallDialog
+    public abstract class VictimBotWaterfallDialog : IVictimBotDialog
     {
         public static string CalcDialogId(Type type) { return type.FullName; }
 
         public string DialogId { get { return GetType().FullName; } }
 
-        public WaterfallDialog Dialog { get; private set; }
+        public Dialog Dialog { get; private set; }
 
         protected VictimBotAccessors Accessors { get; private set; }
 

@@ -15,7 +15,7 @@ namespace VictimBot.Shared
     public class VictimBotDialogRegistry
     {
         /// <summary>
-        /// A list of Dialogs to instantiate and use
+        /// A list of IVictimBotWaterfallDialogs to instantiate and use
         /// </summary>
         public static readonly IEnumerable<Type> RegisteredClasses = new Type[]
         {
@@ -41,7 +41,7 @@ namespace VictimBot.Shared
         /// <summary>
         /// A list of all the Dialogs to register
         /// </summary>
-        public IEnumerable<IVictimBotWaterfallDialog> Dialogs { get; private set; }
+        public IEnumerable<IVictimBotDialog> Dialogs { get; private set; }
 
         /// <summary>
         /// A DialogSet with all the Dialogs fully registered
@@ -52,10 +52,10 @@ namespace VictimBot.Shared
         /// Creates all the Dialogs from their specified classes
         /// </summary>
         /// <returns></returns>
-        private IEnumerable<IVictimBotWaterfallDialog> GenerateDialogs(VictimBotAccessors accessors)
+        private IEnumerable<IVictimBotDialog> GenerateDialogs(VictimBotAccessors accessors)
         {
             return RegisteredClasses.Select(type => 
-                (IVictimBotWaterfallDialog) type
+                (IVictimBotDialog) type
                     .GetConstructor(new Type[] { typeof(VictimBotAccessors) })
                     .Invoke(new object[] { accessors }));
         }
