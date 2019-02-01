@@ -10,7 +10,7 @@ If you're already sold and you'd like to contribute, read our [technical contrib
 
 If you'd like to find out some more about why we're doing this, read on...
 
-![A conversation with our Bot](images/bot-in-emulator.png)
+<img src="https://github.com/PoliceRewired/burglary-victims-support-bot/raw/master/images/bot-in-emulator.png" width="400" title="A conversation with our Bot" />
 
 ## Why tackle burglary?
 
