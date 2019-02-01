@@ -10,6 +10,8 @@ If you're already sold and you'd like to contribute, read our [technical contrib
 
 If you'd like to find out some more about why we're doing this, read on...
 
+![A conversation with our Bot](images/bot-in-emulator.png)
+
 ## Why tackle burglary?
 
 [Burglary affects 2 in every 100 households](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/articles/overviewofburglaryandotherhouseholdtheft/englandandwales), and it sucks! It's a miserable and frightening experience for the victim, and a huge drain on police resources.

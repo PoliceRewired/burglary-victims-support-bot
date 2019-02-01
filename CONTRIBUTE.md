@@ -8,6 +8,10 @@ This is an open source project, led by volunteers.
 
 If you'd like to find out a little more about what we're hoping to achieve, take a look at the [README](README.md).
 
+Read on below to find out more about how to load up the code, and make a contribution to the project...
+
+![A conversation with our Bot](images/bot-in-emulator.png)
+
 ## Technologies
 
 The Burglary Victims' Support Bot is built using the MS Bot Framework v4. This was chosen for its flexibility, well-defined structures, and extensibility. This bot will eventually interact with its own data store, and several other web services. The framework allows the bot to communicate over a wide variety of mediums (Messenger, WhatsApp, etc.)
@@ -25,6 +29,8 @@ Then simply clone this repository and open VictimBot.sln in Visual Studio.
 * Fire up the emulator.
 * Open the VictimBot.bot file with the emulator to connect.
 * Chat away!
+
+![Indicator that the Bot is running](images/bot-running.png)
 
 ## Project structure
 
