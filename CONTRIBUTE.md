@@ -10,7 +10,7 @@ If you'd like to find out a little more about what we're hoping to achieve, take
 
 Read on below to find out more about how to load up the code, and make a contribution to the project...
 
-![A conversation with our Bot](images/bot-in-emulator.png)
+<img src="https://github.com/PoliceRewired/burglary-victims-support-bot/raw/master/images/bot-in-emulator.png" width="400" title="A conversation with our Bot" />
 
 ## Technologies
 
@@ -30,7 +30,7 @@ Then simply clone this repository and open VictimBot.sln in Visual Studio.
 * Open the VictimBot.bot file with the emulator to connect.
 * Chat away!
 
-![Indicator that the Bot is running](images/bot-running.png)
+<img src="https://github.com/PoliceRewired/burglary-victims-support-bot/raw/master/images/bot-running.png" width="400" title="A conversation with our Bot" />
 
 ## Project structure
 
