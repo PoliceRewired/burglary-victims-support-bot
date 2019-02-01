@@ -3,17 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using VictimBot.Shared.Dialogs;
-using VictimBot.Shared.State;
+using VictimBot.Lib.Interfaces;
+using VictimBot.Lib.Helpers;
+using VictimBot.Lib.State;
 
-namespace VictimBot.Shared.Dialogs
+namespace VictimBot.Lib.Dialogs
 {
     public abstract class VictimBotWaterfallDialog : IVictimBotDialog
     {
-        public static string CalcDialogId(Type type) { return type.FullName; }
-
-        public string DialogId { get { return GetType().FullName; } }
-
         public Dialog Dialog { get; private set; }
 
         protected VictimBotAccessors Accessors { get; private set; }
@@ -24,7 +21,7 @@ namespace VictimBot.Shared.Dialogs
         {
             this.Accessors = accessors;
             this.DialogSteps = CreateDialogSteps();
-            this.Dialog = new WaterfallDialog(DialogId, DialogSteps.Select(s => s.Step));
+            this.Dialog = new WaterfallDialog(this.GetDialogId(), DialogSteps.Select(s => s.Step));
         }
 
         protected abstract IEnumerable<IVictimBotWaterfallStep> CreateDialogSteps();

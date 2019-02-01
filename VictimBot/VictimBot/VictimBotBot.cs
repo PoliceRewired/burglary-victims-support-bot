@@ -1,15 +1,13 @@
-﻿// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-using Microsoft.Bot.Builder;
+﻿using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Schema;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using VictimBot.Shared;
-using VictimBot.Shared.Dialogs.PersonalDetails;
-using VictimBot.Shared.State;
+using VictimBot.Dialogs.Dialogs;
+using VictimBot.Lib;
+using VictimBot.Lib.State;
 
 namespace VictimBot
 {
@@ -47,45 +45,54 @@ namespace VictimBot
 
                 // Get the user state from the turn context.
                 var user = await accessors.UserProfile_Accessor.GetAsync(turnContext, () => new UserProfileData());
-                if (user.Name == null)
+
+                // The framework figures out the current dialog, and continues it if there is one
+                var dialogContext = await dialogs.CreateContextAsync(turnContext, cancellationToken);
+                var results = await dialogContext.ContinueDialogAsync(cancellationToken);
+
+                switch (results.Status)
                 {
-                    // The framework figures out the current dialog, and continues it if there is one
-                    var dialogContext = await dialogs.CreateContextAsync(turnContext, cancellationToken);
-                    var results = await dialogContext.ContinueDialogAsync(cancellationToken);
+                    case DialogTurnStatus.Cancelled:
+                    case DialogTurnStatus.Empty:
+                    case DialogTurnStatus.Complete:
+                        // initiate the opening (greeting) dialog
+                        if (!user.Complete)
+                        {
+                            await dialogContext.BeginDialogAsync(registry.RegistrationDialogId, null, cancellationToken);
+                        }
+                        else
+                        {
+                            await dialogContext.BeginDialogAsync(registry.MainChoicesDialogId, null, cancellationToken);
+                        }
+                        break;
 
-                    switch (results.Status)
-                    {
-                        case DialogTurnStatus.Cancelled:
-                        case DialogTurnStatus.Empty:
-                            // initiate the opening (greeting) dialog
-                            await dialogContext.BeginDialogAsync(registry.StartDialogId, null, cancellationToken);
-                            break;
-
-                        case DialogTurnStatus.Complete:
-                            // NOP
-                            break;
-
-                        case DialogTurnStatus.Waiting:
-                            // NOP
-                            break;
-                    }
-                }
-                else
-                {
-                    // Echo back to the user whatever they typed.
-                    var responseMessage = $"{user.Name} you said '{turnContext.Activity.Text}'\n";
-                    await turnContext.SendActivityAsync(responseMessage);
+                    case DialogTurnStatus.Waiting:
+                        // NOP
+                        break;
                 }
 
-                await accessors.ConversationState.SaveChangesAsync(turnContext);
+                // Echo back to the user whatever they typed.
+                // var responseMessage = $"{user.Name} you said '{turnContext.Activity.Text}'\n";
+                // await turnContext.SendActivityAsync(responseMessage);
+
                 await accessors.UserState.SaveChangesAsync(turnContext);
+                await accessors.ConversationState.SaveChangesAsync(turnContext);
             }
             else
             {
-                // This was not a message activity.
+#if DEBUG
+                // This was not a message activity. Echo events into the chat stream in DEBUG mode only.
+                // await turnContext.SendActivityAsync($"{turnContext.Activity.Type} event detected");
+#endif
 
-                // TODO: remove this
-                await turnContext.SendActivityAsync($"{turnContext.Activity.Type} event detected");
+                // if any new member apparently added to the conversation isn't the bot itself, then greet them
+                if (turnContext.Activity.MembersAdded.Any(m => m.Id != turnContext.Activity.Recipient.Id))
+                {
+                    await turnContext.SendActivityAsync(MessageFactory.Text(SharedResources.FirstTimeGreeting), cancellationToken);
+                    await turnContext.SendActivityAsync(MessageFactory.Text(SharedResources.EmergenciesAdviceReminder), cancellationToken);
+                    await turnContext.SendActivityAsync(MessageFactory.Text(SharedResources.GetStartedAdvice), cancellationToken);
+                }
+
             }
         }
     }

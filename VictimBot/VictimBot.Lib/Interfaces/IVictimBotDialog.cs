@@ -2,9 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using VictimBot.Shared.State;
 
-namespace VictimBot.Shared.Dialogs
+namespace VictimBot.Lib.Interfaces
 {
     public interface IVictimBotDialog
     {

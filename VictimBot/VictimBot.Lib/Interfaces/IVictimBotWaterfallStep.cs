@@ -3,14 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace VictimBot.Shared.Dialogs
+namespace VictimBot.Lib.Interfaces
 {
     public interface IVictimBotWaterfallStep
     {
-        string StepId { get; }
         Dialog Prompt { get; }
         WaterfallStep Step { get; }
-
         void RegisterWith(DialogSet set);
 
     }

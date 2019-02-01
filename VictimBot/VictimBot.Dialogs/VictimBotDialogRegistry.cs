@@ -3,11 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using VictimBot.Shared.Dialogs;
-using VictimBot.Shared.Dialogs.PersonalDetails;
-using VictimBot.Shared.State;
+using VictimBot.Lib.Interfaces;
+using VictimBot.Lib.State;
+using VictimBot.Dialogs.Dialogs;
+using VictimBot.Dialogs.Dialogs.MainChoices;
+using VictimBot.Dialogs.Dialogs.PersonalDetails;
+using VictimBot.Lib.Helpers;
 
-namespace VictimBot.Shared
+namespace VictimBot.Lib
 {
     /// <summary>
     /// Holds all dialogs used by the bot - and registers them all with a DialogSet
@@ -19,13 +22,19 @@ namespace VictimBot.Shared
         /// </summary>
         public static readonly IEnumerable<Type> RegisteredClasses = new Type[]
         {
-            typeof(LearnPersonalDetailsDialog)
+            typeof(LearnPersonalDetailsDialog),
+            typeof(MainChoicesDialog)
         };
 
         /// <summary>
-        /// Id of the dialog to use to initiate conversation
+        /// Id of the dialog to use to record vital identity information for the user.
         /// </summary>
-        public string StartDialogId => VictimBotWaterfallDialog.CalcDialogId(typeof(LearnPersonalDetailsDialog));
+        public string RegistrationDialogId => typeof(LearnPersonalDetailsDialog).CalcDialogId();
+
+        /// <summary>
+        /// Id of the dialog to offer the user their main choices.
+        /// </summary>
+        public string MainChoicesDialogId => typeof(MainChoicesDialog).CalcDialogId();
 
         /// <summary>
         /// Standard constructor - prepares dialogs with the accessors provided

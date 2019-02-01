@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VictimBot.Shared.Constants
+namespace VictimBot.Lib.Constants
 {
     public enum IncidentType
     {

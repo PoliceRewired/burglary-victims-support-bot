@@ -15,7 +15,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Linq;
-using VictimBot.Shared.State;
+using VictimBot.Lib.State;
 
 namespace VictimBot
 {

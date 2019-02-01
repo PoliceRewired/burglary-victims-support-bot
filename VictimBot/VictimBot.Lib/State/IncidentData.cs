@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using VictimBot.Shared.Constants;
+using VictimBot.Lib.Constants;
 
-namespace VictimBot.Shared.State
+namespace VictimBot.Lib.State
 {
     public class IncidentData
     {
