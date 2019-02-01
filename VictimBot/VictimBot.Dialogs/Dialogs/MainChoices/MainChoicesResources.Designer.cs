@@ -61,6 +61,33 @@ namespace VictimBot.Dialogs.Dialogs.MainChoices {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Report a burglary..
+        /// </summary>
+        public static string Choice_ReportBurglary {
+            get {
+                return ResourceManager.GetString("Choice_ReportBurglary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Review incidents I&apos;ve recorded here..
+        /// </summary>
+        public static string Choice_ReviewIncidents {
+            get {
+                return ResourceManager.GetString("Choice_ReviewIncidents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update my personal details..
+        /// </summary>
+        public static string Choice_UpdatePersonals {
+            get {
+                return ResourceManager.GetString("Choice_UpdatePersonals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You chose: {0}.
         /// </summary>
         public static string ConfirmChoice {
