@@ -41,7 +41,7 @@ The solution is divided into 3 projects:
 
 ## Contributing
 
-If you'd like to make a contribution to this project, take a look at the currently outstanding [issues](https://github.com/PoliceRewired/burglary-victims-support-bot/issues). If you see one you'd like to pick off, [contact the team]by commenting on the issue, and plan it with us.
+If you'd like to make a contribution to this project, take a look at the currently outstanding [issues](https://github.com/PoliceRewired/burglary-victims-support-bot/issues). If you see one you'd like to pick off, contact the team by commenting on it, and plan it with us.
 
 If you're in London, check to see if there's a [meetup](https://policerewired.org) you can come along to.
 
