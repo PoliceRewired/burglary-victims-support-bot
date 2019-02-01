@@ -47,5 +47,8 @@ At 100% uptake, that's 664,000 hours the police could get back and use to invest
 
 ### Yes, but...
 
-_We know - it's not for everyone._ Some people are simply not ready to work with a digital assistant, and that's okay. If our tool only helped with half of the work, that's about 300,000 hours police officers could spend with the victims that need their time more.
+_We know - it's not for everyone._
 
+There are many reasons why a person might choose not to work with a bot. Some people are unable to use certain technologies, some don't trust them, some are vulnerable, confused or too distressed to do it. Some people are simply not ready to work with a digital assistant for reasons we've not thought of. That's okay.
+
+If our tool only helped with half of the work, that's about 300,000 hours police officers could spend with the victims that need their time the most.
