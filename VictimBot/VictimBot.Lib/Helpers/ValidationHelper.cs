@@ -1,6 +1,7 @@
 ﻿using BinaryFog.NameParser;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using VictimBot.Lib.State;
@@ -18,7 +19,14 @@ namespace VictimBot.Lib.Helpers
             {
                 var target = new FullNameParser(text);
                 target.Parse();
-                return target.Results.Count > 0;
+
+                // there must be at least one parsed name
+                if (target.Results.Count == 0) { return false; }
+
+                // a full name has both first and last name
+                return
+                    !string.IsNullOrWhiteSpace(target.Results.First().FirstName) &&
+                    !string.IsNullOrWhiteSpace(target.Results.First().LastName);
             }
             catch (Exception)
             {

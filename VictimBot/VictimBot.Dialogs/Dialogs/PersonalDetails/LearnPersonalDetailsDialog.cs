@@ -70,7 +70,10 @@ namespace VictimBot.Dialogs.Dialogs.PersonalDetails
                 cancellationToken);
         }
 
-        protected async Task<bool> ValidateName(PromptValidatorContext<string> promptContext, CancellationToken cancellationToken) => promptContext.Recognized.Succeeded && !string.IsNullOrWhiteSpace(promptContext.Recognized.Value);
+        protected async Task<bool> ValidateName(PromptValidatorContext<string> promptContext, CancellationToken cancellationToken) => 
+            promptContext.Recognized.Succeeded &&
+            !string.IsNullOrWhiteSpace(promptContext.Recognized.Value) &&
+            promptContext.Recognized.Value.IsFullName();
     }
 
     public class ConfirmNameStep : VictimBotWaterfallStep<TextPrompt>
@@ -85,10 +88,11 @@ namespace VictimBot.Dialogs.Dialogs.PersonalDetails
         protected async override Task<DialogTurnResult> StepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
             var statedName = (string)stepContext.Result;
-            await stepContext.Context.SendActivityAsync(MessageFactory.Text(string.Format(LearnPersonalDetailsResources.ConfirmName, statedName)), cancellationToken);
 
             var userProfile = await Accessors.UserProfile_Accessor.GetAsync(stepContext.Context, () => new UserProfileData(), cancellationToken);
             userProfile.RawName = statedName;
+
+            await stepContext.Context.SendActivityAsync(MessageFactory.Text(string.Format(LearnPersonalDetailsResources.ConfirmName, userProfile.FullName.FirstName)), cancellationToken);
 
             return await stepContext.NextAsync(cancellationToken);
         }
