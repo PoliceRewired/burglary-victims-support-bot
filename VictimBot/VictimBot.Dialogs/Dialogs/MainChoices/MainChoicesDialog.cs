@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder;
@@ -57,7 +58,11 @@ namespace VictimBot.Dialogs.Dialogs.MainChoices
                 cancellationToken);
         }
 
-        protected async Task<bool> ValidateChoice(PromptValidatorContext<FoundChoice> promptContext, CancellationToken cancellationToken) => true;
+        protected async Task<bool> ValidateChoice(PromptValidatorContext<FoundChoice> promptContext, CancellationToken cancellationToken)
+        {
+            // confirm it was one of the choices available
+            return promptContext.Options.Choices.Select(c => c.Value).Contains(promptContext.Recognized.Value.Value);
+        }
     }
 
     public class ParseMainChoiceStep : VictimBotWaterfallStep<TextPrompt>

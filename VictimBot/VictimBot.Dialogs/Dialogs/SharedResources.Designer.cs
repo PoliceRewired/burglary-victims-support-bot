@@ -88,6 +88,24 @@ namespace VictimBot.Dialogs.Dialogs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Victim Support Bot Service.
+        /// </summary>
+        public static string FirstTimeSubtitle {
+            get {
+                return ResourceManager.GetString("FirstTimeSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Greetings.
+        /// </summary>
+        public static string FirstTimeTitle {
+            get {
+                return ResourceManager.GetString("FirstTimeTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to When you&apos;re ready to get started, just say hi..
         /// </summary>
         public static string GetStartedAdvice {

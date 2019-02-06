@@ -2,6 +2,8 @@
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Schema;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -55,13 +57,14 @@ namespace VictimBot
                     case DialogTurnStatus.Cancelled:
                     case DialogTurnStatus.Empty:
                     case DialogTurnStatus.Complete:
-                        // initiate the opening (greeting) dialog
                         if (!user.Complete)
                         {
+                            // initiate the minimum user details collection dialog
                             await dialogContext.BeginDialogAsync(registry.RegistrationDialogId, null, cancellationToken);
                         }
                         else
                         {
+                            // initiate the main choices dialog (main menu)
                             await dialogContext.BeginDialogAsync(registry.MainChoicesDialogId, null, cancellationToken);
                         }
                         break;
@@ -88,7 +91,29 @@ namespace VictimBot
                 // if any new member apparently added to the conversation isn't the bot itself, then greet them
                 if (turnContext.Activity.MembersAdded.Any(m => m.Id != turnContext.Activity.Recipient.Id))
                 {
-                    await turnContext.SendActivityAsync(MessageFactory.Text(SharedResources.FirstTimeGreeting), cancellationToken);
+                    // TODO create attachment with image of bot waving hello
+
+                    var base64 = "data:image/png;base64," + Convert.ToBase64String(BotImages.bot_wave_01);
+                    var images = new[]
+                    {
+                        new CardImage(base64, alt: "greeting image", tap: null)
+                    }.ToList();
+
+                    var card = new HeroCard(
+                        title: SharedResources.FirstTimeTitle, 
+                        subtitle: SharedResources.FirstTimeSubtitle, 
+                        text: SharedResources.FirstTimeGreeting, 
+                        images: images, 
+                        buttons: null, 
+                        tap: null);
+
+                    // var greeting = MessageFactory.Text(SharedResources.FirstTimeGreeting);
+                    // greeting.Attachments.Add(new Attachment("image/png", base64, null, "greeting"));
+                    // await turnContext.SendActivityAsync(greeting, cancellationToken);
+
+                    var greeting = MessageFactory.Attachment(card.ToAttachment());
+                    await turnContext.SendActivityAsync(greeting, cancellationToken);
+
                     await turnContext.SendActivityAsync(MessageFactory.Text(SharedResources.EmergenciesAdviceReminder), cancellationToken);
                     await turnContext.SendActivityAsync(MessageFactory.Text(SharedResources.GetStartedAdvice), cancellationToken);
                 }

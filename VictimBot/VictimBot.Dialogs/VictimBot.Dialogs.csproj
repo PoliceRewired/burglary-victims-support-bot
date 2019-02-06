@@ -15,6 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Dialogs\BotImages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BotImages.resx</DependentUpon>
+    </Compile>
     <Compile Update="Dialogs\MainChoices\MainChoicesResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -33,6 +38,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Dialogs\BotImages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BotImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Dialogs\MainChoices\MainChoicesResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MainChoicesResources.Designer.cs</LastGenOutput>

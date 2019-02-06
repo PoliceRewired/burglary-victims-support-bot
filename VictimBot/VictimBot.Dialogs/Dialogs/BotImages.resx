@@ -117,31 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AbortString" xml:space="preserve">
-    <value>stop</value>
-  </data>
-  <data name="EmergenciesAdviceReminder" xml:space="preserve">
-    <value>Please remember to dial 999 in an emergency.</value>
-  </data>
-  <data name="FirstTimeGreeting" xml:space="preserve">
-    <value>Thank you for contacting the Victim Support Bot. If you've been burgled, this bot can help you.</value>
-  </data>
-  <data name="FirstTimeSubtitle" xml:space="preserve">
-    <value>Victim Support Bot Service</value>
-  </data>
-  <data name="FirstTimeTitle" xml:space="preserve">
-    <value>Greetings</value>
-  </data>
-  <data name="GetStartedAdvice" xml:space="preserve">
-    <value>When you're ready to get started, just say hi.</value>
-  </data>
-  <data name="OfferToAbort" xml:space="preserve">
-    <value>If you'd rather not continue, just say: stop</value>
-  </data>
-  <data name="ResponseToBlank" xml:space="preserve">
-    <value>I'm afraid that came through as blank.</value>
-  </data>
-  <data name="ServiceName" xml:space="preserve">
-    <value>Victim Support Bot Service</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bot_wave_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bot_wave_01.PNG;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
