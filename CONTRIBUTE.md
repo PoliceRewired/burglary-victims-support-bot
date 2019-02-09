@@ -10,7 +10,7 @@ If you'd like to find out a little more about what we're hoping to achieve, take
 
 Read on below to find out more about how to load up the code, and make a contribution to the project...
 
-![A conversation with our Bot](images/bot-in-emulator.png)
+<img src="https://github.com/PoliceRewired/burglary-victims-support-bot/raw/master/images/bot-in-emulator.png" width="400" title="A conversation with our Bot" />
 
 ## Technologies
 
@@ -30,7 +30,7 @@ Then simply clone this repository and open VictimBot.sln in Visual Studio.
 * Open the VictimBot.bot file with the emulator to connect.
 * Chat away!
 
-![Indicator that the Bot is running](images/bot-running.png)
+<img src="https://github.com/PoliceRewired/burglary-victims-support-bot/raw/master/images/bot-running.png" width="400" title="A conversation with our Bot" />
 
 ## Project structure
 
@@ -41,7 +41,7 @@ The solution is divided into 3 projects:
 
 ## Contributing
 
-If you'd like to make a contribution to this project, take a look at the currently outstanding [issues](https://github.com/PoliceRewired/burglary-victims-support-bot/issues). If you see one you'd like to pick off, [contact the team](mailto:team@policerewired.org) and plan it with us.
+If you'd like to make a contribution to this project, take a look at the currently outstanding [issues](https://github.com/PoliceRewired/burglary-victims-support-bot/issues). If you see one you'd like to pick off, contact the team by commenting on it, and plan it with us.
 
 If you're in London, check to see if there's a [meetup](https://policerewired.org) you can come along to.
 
