@@ -30,6 +30,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>LearnPersonalDetailsResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Dialogs\RecordBurglary\RecordNewBurglaryResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RecordNewBurglaryResources.resx</DependentUpon>
+    </Compile>
     <Compile Update="Dialogs\SharedResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -49,6 +54,10 @@
     <EmbeddedResource Update="Dialogs\PersonalDetails\LearnPersonalDetailsResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LearnPersonalDetailsResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Dialogs\RecordBurglary\RecordNewBurglaryResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecordNewBurglaryResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Dialogs\SharedResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

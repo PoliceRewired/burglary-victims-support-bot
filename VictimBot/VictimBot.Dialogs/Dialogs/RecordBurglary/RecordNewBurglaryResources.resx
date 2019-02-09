@@ -117,31 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Choice_ReportBurglary" xml:space="preserve">
-    <value>Report a burglary.</value>
+  <data name="CannotConfirmIntent" xml:space="preserve">
+    <value>I'm afraid I didn't understand that.</value>
   </data>
-  <data name="Choice_ReviewIncidents" xml:space="preserve">
-    <value>Review incidents I've recorded here.</value>
+  <data name="Choice_Back" xml:space="preserve">
+    <value>Not now.</value>
   </data>
-  <data name="Choice_UpdatePersonals" xml:space="preserve">
-    <value>Update my personal details.</value>
+  <data name="Choice_NewReport" xml:space="preserve">
+    <value>I'm ready.</value>
   </data>
-  <data name="ConfirmChoice" xml:space="preserve">
-    <value>You chose: {0}</value>
+  <data name="ConfirmIntention_Preamble" xml:space="preserve">
+    <value>Ok, let's get started with recording a new burglary report. Please confirm when you're ready to do that.</value>
   </data>
-  <data name="OfferOptionsPreamble" xml:space="preserve">
-    <value>Please select one of the following options, or just say what you'd like to do.</value>
-  </data>
-  <data name="OfferOptions_Retry" xml:space="preserve">
-    <value>I wasn't able to parse that.</value>
-  </data>
-  <data name="ReviewNotImplemented" xml:space="preserve">
-    <value>TODO: It is not yet possible to review your recorded burglaries. We'll come back to that!</value>
-  </data>
-  <data name="UnrecognisedOption" xml:space="preserve">
-    <value>Unfortunately, that option was not recognised. Let's start over.</value>
-  </data>
-  <data name="UpdatePersonalsNotImplemented" xml:space="preserve">
-    <value>TODO: It is not yet possible to review and update your personal details. We'll come back to that!</value>
+  <data name="ConfirmIntention_Retry" xml:space="preserve">
+    <value>I'm sorry I didn't understand - if you'd like to go back to the main menu just say 'stop' at any time.</value>
   </data>
 </root>

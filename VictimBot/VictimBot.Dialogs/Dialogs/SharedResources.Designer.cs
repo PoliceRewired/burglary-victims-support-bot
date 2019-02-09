@@ -70,7 +70,7 @@ namespace VictimBot.Dialogs.Dialogs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please remember to dial 999 in an emergency..
+        ///   Looks up a localized string similar to **Please don&apos;t use this bot to report a crime. Dial 999 in an emergency, and 101 for non-emergencies.**.
         /// </summary>
         public static string EmergenciesAdviceReminder {
             get {
@@ -79,7 +79,7 @@ namespace VictimBot.Dialogs.Dialogs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thank you for contacting the Victim Support Bot. If you&apos;ve been burgled, this bot can help you..
+        ///   Looks up a localized string similar to Thank you for contacting the Victim Support Bot. If you&apos;ve been burgled, this bot can help you prepare your case..
         /// </summary>
         public static string FirstTimeGreeting {
             get {
@@ -111,6 +111,706 @@ namespace VictimBot.Dialogs.Dialogs {
         public static string GetStartedAdvice {
             get {
                 return ResourceManager.GetString("GetStartedAdvice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_add_a_photo_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_add_a_photo_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_add_circle_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_add_circle_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_add_circle_outline_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_add_circle_outline_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_attach_file_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_attach_file_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_backspace_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_backspace_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_block_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_block_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_cake_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_cake_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_clear_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_clear_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_computer_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_computer_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_content_copy_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_content_copy_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_content_paste_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_content_paste_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_create_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_create_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_delete_sweep_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_delete_sweep_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_directions_bike_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_directions_bike_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_directions_car_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_directions_car_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_domain_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_domain_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_done_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_done_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_edit_location_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_edit_location_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_favorite_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_favorite_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_favorite_border_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_favorite_border_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_fingerprint_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_fingerprint_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_format_align_justify_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_format_align_justify_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_format_list_bulleted_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_format_list_bulleted_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_format_list_numbered_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_format_list_numbered_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_forward_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_forward_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_grade_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_grade_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_group_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_group_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_headset_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_headset_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_highlight_off_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_highlight_off_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_home_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_home_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_hourglass_empty_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_hourglass_empty_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_hourglass_full_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_hourglass_full_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_https_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_https_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_info_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_info_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_info_outline_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_info_outline_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_insert_drive_file_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_insert_drive_file_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_language_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_language_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_lightbulb_outline_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_lightbulb_outline_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_lock_open_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_lock_open_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_lock_outline_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_lock_outline_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_mail_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_mail_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_pan_tool_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_pan_tool_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_person_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_person_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_person_outline_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_person_outline_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_phone_android_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_phone_android_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_photo_camera_black_72dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_photo_camera_black_72dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_photo_library_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_photo_library_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_place_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_place_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_power_settings_new_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_power_settings_new_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_reply_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_reply_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_report_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_report_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_report_problem_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_report_problem_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_save_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_save_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_school_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_school_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_security_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_security_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_shopping_cart_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_shopping_cart_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_speaker_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_speaker_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_stars_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_stars_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_subject_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_subject_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_thumb_down_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_thumb_down_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_thumb_up_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_thumb_up_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_thumbs_up_down_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_thumbs_up_down_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_toc_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_toc_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_undo_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_undo_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_verified_user_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_verified_user_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_videogame_asset_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_videogame_asset_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_visibility_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_visibility_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_watch_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_watch_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_watch_later_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_watch_later_black_48dp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ic_weekend_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_weekend_black_48dp", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

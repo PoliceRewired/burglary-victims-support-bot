@@ -9,6 +9,7 @@ using VictimBot.Dialogs.Dialogs;
 using VictimBot.Dialogs.Dialogs.MainChoices;
 using VictimBot.Dialogs.Dialogs.PersonalDetails;
 using VictimBot.Lib.Helpers;
+using VictimBot.Dialogs.Dialogs.RecordBurglary;
 
 namespace VictimBot.Lib
 {
@@ -23,7 +24,8 @@ namespace VictimBot.Lib
         public static readonly IEnumerable<Type> RegisteredClasses = new Type[]
         {
             typeof(LearnPersonalDetailsDialog),
-            typeof(MainChoicesDialog)
+            typeof(MainChoicesDialog),
+            typeof(RecordNewBurglaryDialog)
         };
 
         /// <summary>

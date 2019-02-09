@@ -113,5 +113,32 @@ namespace VictimBot.Dialogs.Dialogs.MainChoices {
                 return ResourceManager.GetString("OfferOptionsPreamble", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO: It is not yet possible to review your recorded burglaries. We&apos;ll come back to that!.
+        /// </summary>
+        public static string ReviewNotImplemented {
+            get {
+                return ResourceManager.GetString("ReviewNotImplemented", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unfortunately, that option was not recognised. Let&apos;s start over..
+        /// </summary>
+        public static string UnrecognisedOption {
+            get {
+                return ResourceManager.GetString("UnrecognisedOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO: It is not yet possible to review and update your personal details. We&apos;ll come back to that!.
+        /// </summary>
+        public static string UpdatePersonalsNotImplemented {
+            get {
+                return ResourceManager.GetString("UpdatePersonalsNotImplemented", resourceCulture);
+            }
+        }
     }
 }

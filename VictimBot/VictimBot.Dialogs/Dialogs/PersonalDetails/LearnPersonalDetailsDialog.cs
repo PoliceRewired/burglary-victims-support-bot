@@ -44,7 +44,6 @@ namespace VictimBot.Dialogs.Dialogs.PersonalDetails
 
         protected async override Task<DialogTurnResult> StepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            // TODO - create Attachment image, using bot with clipboard image
             await stepContext.Context.SendActivityAsync(MessageFactory.Text(LearnPersonalDetailsResources.Preamble_Explanation), cancellationToken);
             return await stepContext.NextAsync(cancellationToken);
         }
