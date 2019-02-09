@@ -8,10 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using VictimBot.Lib.Constants;
 using VictimBot.Lib.Dialogs;
 using VictimBot.Lib.Helpers;
 using VictimBot.Lib.Interfaces;
 using VictimBot.Lib.State;
+using VictimBot.Dialogs.Dialogs.ReviewBurglary;
 
 namespace VictimBot.Dialogs.Dialogs.RecordBurglary
 {
@@ -85,7 +87,8 @@ namespace VictimBot.Dialogs.Dialogs.RecordBurglary
 
             if (ConfirmIntentionStep.CHOICE_NewReport == statedChoice)
             {
-                return await stepContext.NextAsync(cancellationToken);
+                await Accessors.CurrentIncident_Accessor.SetAsync(stepContext.Context, IncidentData.NewBurglary(), cancellationToken);
+                return await stepContext.ReplaceDialogAsync(typeof(ReviewBurglaryDialog).CalcDialogId(), null, cancellationToken);
             }
             else if (ConfirmIntentionStep.CHOICE_Back == statedChoice)
             {

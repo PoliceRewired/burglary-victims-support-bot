@@ -35,6 +35,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>RecordNewBurglaryResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Dialogs\ReviewBurglary\ReviewBurglaryResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ReviewBurglaryResources.resx</DependentUpon>
+    </Compile>
     <Compile Update="Dialogs\SharedResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -59,10 +64,18 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RecordNewBurglaryResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Dialogs\ReviewBurglary\ReviewBurglaryResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReviewBurglaryResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Dialogs\SharedResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SharedResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dialogs\SelectIncidentDialog\" />
   </ItemGroup>
 
 </Project>

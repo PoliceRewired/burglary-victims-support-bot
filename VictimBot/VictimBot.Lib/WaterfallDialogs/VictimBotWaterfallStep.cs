@@ -27,6 +27,8 @@ namespace VictimBot.Lib.Dialogs
 
         protected abstract PromptType CreatePrompt(string stepId);
 
+        // TODO: interject in StepAsync, identify universal 'stop' interruptions from the user and end the dialog immediately
+
         protected abstract Task<DialogTurnResult> StepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken);
 
         public void RegisterWith(DialogSet set)
