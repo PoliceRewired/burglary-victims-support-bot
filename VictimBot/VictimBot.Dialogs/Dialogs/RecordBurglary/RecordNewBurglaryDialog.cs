@@ -14,6 +14,7 @@ using VictimBot.Lib.Helpers;
 using VictimBot.Lib.Interfaces;
 using VictimBot.Lib.State;
 using VictimBot.Dialogs.Dialogs.ReviewBurglary;
+using VictimBot.Lib.Storage.DTO;
 
 namespace VictimBot.Dialogs.Dialogs.RecordBurglary
 {
@@ -87,7 +88,12 @@ namespace VictimBot.Dialogs.Dialogs.RecordBurglary
 
             if (ConfirmIntentionStep.CHOICE_NewReport == statedChoice)
             {
-                await Accessors.CurrentIncident_Accessor.SetAsync(stepContext.Context, IncidentData.NewBurglary(), cancellationToken);
+                var channelId = stepContext.Context.Activity.ChannelId;
+                var userProfile = await Accessors.UserProfile_Accessor.GetAsync(stepContext.Context,
+                    () => Accessors.Storage.UserProfiles.ReadOrCreateAsync(channelId).Result,
+                    cancellationToken);
+                var ownerGuid = userProfile.Guid;
+                await Accessors.CurrentIncident_Accessor.SetAsync(stepContext.Context, IncidentData.NewBurglary(ownerGuid), cancellationToken);
                 return await stepContext.ReplaceDialogAsync(typeof(ReviewBurglaryDialog).CalcDialogId(), null, cancellationToken);
             }
             else if (ConfirmIntentionStep.CHOICE_Back == statedChoice)

@@ -52,7 +52,11 @@ namespace VictimBot
                 // 6. If the intent cannot be determined, apologise and offer the user ways to re-enter dialog
 
                 // Get the user state from the turn context.
-                var user = await accessors.UserProfile_Accessor.GetAsync(turnContext, () => new UserProfileData());
+                var channelId = turnContext.Activity.ChannelId;
+                var user = await accessors.UserProfile_Accessor.GetAsync(
+                    turnContext,
+                    () => accessors.Storage.UserProfiles.ReadOrCreateAsync(channelId).Result,
+                    cancellationToken);
 
                 // The framework figures out the current dialog, and continues it if there is one
                 var dialogContext = await dialogs.CreateContextAsync(turnContext, cancellationToken);
@@ -98,7 +102,7 @@ namespace VictimBot
                     var greeting = CardHelper.GenerateHero(
                         SharedResources.FirstTimeTitle,
                         SharedResources.FirstTimeSubtitle,
-                        SharedResources.FirstTimeSubtitle,
+                        SharedResources.FirstTimeGreeting,
                         BotImages.bot_wave_01);
 
                     await turnContext.SendActivityAsync(greeting, cancellationToken);

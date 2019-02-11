@@ -1,13 +1,24 @@
 ﻿using BinaryFog.NameParser;
+using Microsoft.Bot.Builder;
+using Microsoft.Bot.Connector;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using VictimBot.Lib.Helpers;
 
-namespace VictimBot.Lib.State
+namespace VictimBot.Lib.Storage.DTO
 {
-    public class UserProfileData
+    public class UserProfileData : IStoreItem
     {
+        public UserProfileData(string channelId)
+        {
+            ChannelId = channelId;
+        }
+
+        public Guid Guid { get; set; } = Guid.NewGuid();
+
+        public string ChannelId { get; set; }
+
         private string rawname;
 
         public string RawName {
@@ -31,8 +42,14 @@ namespace VictimBot.Lib.State
         {
             get
             {
-                return FullName != null && FullName.Results.Count > 0 && Email != null && Email.IsEmailAddress();
+                return 
+                    !string.IsNullOrWhiteSpace(ChannelId) && 
+                    FullName != null && 
+                    FullName.Results.Count > 0 &&
+                    Email != null && Email.IsEmailAddress();
             }
         }
+
+        public string ETag { get; set; } = "*";
     }
 }

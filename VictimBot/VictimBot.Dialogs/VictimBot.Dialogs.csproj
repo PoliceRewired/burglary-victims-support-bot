@@ -40,10 +40,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ReviewBurglaryResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Dialogs\SelectIncident\SelectIncidentResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SelectIncidentResources.resx</DependentUpon>
+    </Compile>
     <Compile Update="Dialogs\SharedResources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>SharedResources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Summaries\IncidentSummaryResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IncidentSummaryResources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -68,14 +78,18 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ReviewBurglaryResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Dialogs\SelectIncident\SelectIncidentResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SelectIncidentResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Dialogs\SharedResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SharedResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Dialogs\SelectIncidentDialog\" />
+    <EmbeddedResource Update="Summaries\IncidentSummaryResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>IncidentSummaryResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

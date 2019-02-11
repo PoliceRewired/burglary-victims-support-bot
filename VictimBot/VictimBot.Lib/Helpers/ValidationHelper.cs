@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using VictimBot.Lib.State;
+using VictimBot.Lib.Storage.DTO;
 
 namespace VictimBot.Lib.Helpers
 {

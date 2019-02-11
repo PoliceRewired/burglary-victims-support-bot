@@ -88,7 +88,10 @@ namespace VictimBot.Dialogs.Dialogs.PersonalDetails
         {
             var statedName = (string)stepContext.Result;
 
-            var userProfile = await Accessors.UserProfile_Accessor.GetAsync(stepContext.Context, () => new UserProfileData(), cancellationToken);
+            var channelId = stepContext.Context.Activity.ChannelId;
+            var userProfile = await Accessors.UserProfile_Accessor.GetAsync(stepContext.Context,
+                () => Accessors.Storage.UserProfiles.ReadOrCreateAsync(channelId).Result,
+                cancellationToken);
             userProfile.RawName = statedName;
 
             await stepContext.Context.SendActivityAsync(MessageFactory.Text(string.Format(LearnPersonalDetailsResources.ConfirmName, userProfile.FullName.FirstName)), cancellationToken);
@@ -136,8 +139,14 @@ namespace VictimBot.Dialogs.Dialogs.PersonalDetails
             var statedEmail = (string)stepContext.Result;
             await stepContext.Context.SendActivityAsync(MessageFactory.Text(string.Format(LearnPersonalDetailsResources.ConfirmEmail, statedEmail)), cancellationToken);
 
-            var userProfile = await Accessors.UserProfile_Accessor.GetAsync(stepContext.Context, () => new UserProfileData(), cancellationToken);
+            var channelId = stepContext.Context.Activity.ChannelId;
+            var userProfile = await Accessors.UserProfile_Accessor.GetAsync(stepContext.Context,
+                () => Accessors.Storage.UserProfiles.ReadOrCreateAsync(channelId).Result,
+                cancellationToken);
+
             userProfile.Email = statedEmail;
+
+            await Accessors.Storage.UserProfiles.WriteAsync(userProfile);
 
             // end of sequence
             return await stepContext.EndDialogAsync(cancellationToken);

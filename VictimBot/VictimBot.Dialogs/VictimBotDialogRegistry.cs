@@ -10,6 +10,8 @@ using VictimBot.Dialogs.Dialogs.MainChoices;
 using VictimBot.Dialogs.Dialogs.PersonalDetails;
 using VictimBot.Lib.Helpers;
 using VictimBot.Dialogs.Dialogs.RecordBurglary;
+using VictimBot.Dialogs.Dialogs.ReviewBurglary;
+using VictimBot.Dialogs.Dialogs.SelectIncident;
 
 namespace VictimBot.Lib
 {
@@ -25,7 +27,9 @@ namespace VictimBot.Lib
         {
             typeof(LearnPersonalDetailsDialog),
             typeof(MainChoicesDialog),
-            typeof(RecordNewBurglaryDialog)
+            typeof(RecordNewBurglaryDialog),
+            typeof(ReviewBurglaryDialog),
+            typeof(SelectIncidentDialog)
         };
 
         /// <summary>

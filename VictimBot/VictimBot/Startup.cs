@@ -16,6 +16,7 @@ using Microsoft.Extensions.Options;
 using System;
 using System.Linq;
 using VictimBot.Lib.State;
+using VictimBot.Lib.Storage.DTO;
 
 namespace VictimBot
 {
