@@ -124,7 +124,7 @@
     <value>**Please don't use this bot to report a crime. Dial 999 in an emergency, and 101 for non-emergencies.**</value>
   </data>
   <data name="FirstTimeGreeting" xml:space="preserve">
-    <value>Thank you for contacting the Victim Support Bot. If you've been burgled, this bot can help you prepare your case.</value>
+    <value>Thank you for contacting the Victim Support Bot. If you've been burgled, I can help you to get a head start on the investigation.</value>
   </data>
   <data name="FirstTimeSubtitle" xml:space="preserve">
     <value>Victim Support Bot Service</value>

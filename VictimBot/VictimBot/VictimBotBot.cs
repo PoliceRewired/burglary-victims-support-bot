@@ -92,7 +92,7 @@ namespace VictimBot
 
 #if DEBUG
                 // This was not a message activity. Echo events into the chat stream in DEBUG mode only.
-                await turnContext.SendActivityAsync($"{turnContext.Activity.Type} event detected");
+                // await turnContext.SendActivityAsync($"{turnContext.Activity.Type} event detected");
 #endif
 
                 // if any new member apparently added to the conversation isn't the bot itself, then greet them

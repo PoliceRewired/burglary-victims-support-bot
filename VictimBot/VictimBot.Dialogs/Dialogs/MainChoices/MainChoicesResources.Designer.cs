@@ -79,7 +79,7 @@ namespace VictimBot.Dialogs.Dialogs.MainChoices {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update my personal details..
+        ///   Looks up a localized string similar to Review my personal details..
         /// </summary>
         public static string Choice_UpdatePersonals {
             get {

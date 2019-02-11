@@ -79,7 +79,7 @@ namespace VictimBot.Dialogs.Dialogs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thank you for contacting the Victim Support Bot. If you&apos;ve been burgled, this bot can help you prepare your case..
+        ///   Looks up a localized string similar to Thank you for contacting the Victim Support Bot. If you&apos;ve been burgled, I can help you to get a head start on the investigation..
         /// </summary>
         public static string FirstTimeGreeting {
             get {

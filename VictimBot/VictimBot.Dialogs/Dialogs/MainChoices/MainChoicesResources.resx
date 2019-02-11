@@ -124,7 +124,7 @@
     <value>Review incidents I've recorded here.</value>
   </data>
   <data name="Choice_UpdatePersonals" xml:space="preserve">
-    <value>Update my personal details.</value>
+    <value>Review my personal details.</value>
   </data>
   <data name="ConfirmChoice" xml:space="preserve">
     <value>You chose: {0}</value>
