@@ -34,7 +34,7 @@ namespace VictimBot.Dialogs.Dialogs.MainChoices
         {
         }
 
-        protected async override Task<IList<Choice>> GenerateChoicesAsync()
+        protected async override Task<IList<Choice>> GenerateChoicesAsync(WaterfallStepContext context)
         {
             return new List<Choice>()
             {
@@ -44,12 +44,12 @@ namespace VictimBot.Dialogs.Dialogs.MainChoices
             };
         }
 
-        protected async override Task<string> GeneratePromptAsync()
+        protected async override Task<string> GeneratePromptAsync(WaterfallStepContext context)
         {
             return MainChoicesResources.OfferOptionsPreamble;
         }
 
-        protected async override Task<string> GenerateRepromptAsync()
+        protected async override Task<string> GenerateRepromptAsync(WaterfallStepContext context)
         {
             return MainChoicesResources.OfferOptions_Retry;
         }

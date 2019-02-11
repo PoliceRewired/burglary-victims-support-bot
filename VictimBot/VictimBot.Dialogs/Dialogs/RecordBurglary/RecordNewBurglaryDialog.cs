@@ -38,7 +38,7 @@ namespace VictimBot.Dialogs.Dialogs.RecordBurglary
         {
         }
 
-        protected async override Task<IList<Choice>> GenerateChoicesAsync()
+        protected async override Task<IList<Choice>> GenerateChoicesAsync(WaterfallStepContext context)
         {
             return new List<Choice>()
             {
@@ -47,12 +47,12 @@ namespace VictimBot.Dialogs.Dialogs.RecordBurglary
             };
         }
 
-        protected async override Task<string> GeneratePromptAsync()
+        protected async override Task<string> GeneratePromptAsync(WaterfallStepContext context)
         {
             return RecordNewBurglaryResources.ConfirmIntention_Preamble;
         }
 
-        protected async override Task<string> GenerateRepromptAsync()
+        protected async override Task<string> GenerateRepromptAsync(WaterfallStepContext context)
         {
             return RecordNewBurglaryResources.ConfirmIntention_Retry;
         }

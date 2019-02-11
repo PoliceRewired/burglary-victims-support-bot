@@ -26,10 +26,10 @@ namespace VictimBot.Lib.WaterfallDialogs
 
         protected async override Task<DialogTurnResult> StepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            var choices = await GenerateChoicesAsync();
+            var choices = await GenerateChoicesAsync(stepContext);
 
-            var message = MessageFactory.SuggestedActions(choices.Select(c => c.Value), await GeneratePromptAsync());
-            var message_retry = MessageFactory.SuggestedActions(choices.Select(c => c.Value), await GenerateRepromptAsync());
+            var message = MessageFactory.SuggestedActions(choices.Select(c => c.Value), await GeneratePromptAsync(stepContext));
+            var message_retry = MessageFactory.SuggestedActions(choices.Select(c => c.Value), await GenerateRepromptAsync(stepContext));
 
             return await stepContext.PromptAsync(
                 this.GetStepId(),
@@ -42,11 +42,11 @@ namespace VictimBot.Lib.WaterfallDialogs
                 cancellationToken);
         }
 
-        protected abstract Task<string> GeneratePromptAsync();
+        protected abstract Task<string> GeneratePromptAsync(WaterfallStepContext stepContext = null);
 
-        protected abstract Task<string> GenerateRepromptAsync();
+        protected abstract Task<string> GenerateRepromptAsync(WaterfallStepContext stepContext = null);
 
-        protected abstract Task<IList<Choice>> GenerateChoicesAsync();
+        protected abstract Task<IList<Choice>> GenerateChoicesAsync(WaterfallStepContext stepContext = null);
 
         protected async Task<bool> ValidateChoice(PromptValidatorContext<FoundChoice> promptContext, CancellationToken cancellationToken)
         {
