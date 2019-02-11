@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using VictimBot.Lib.Dialogs;
 using VictimBot.Lib.Interfaces;
 using VictimBot.Lib.State;
+using VictimBot.Lib.WaterfallDialogs;
 
 namespace VictimBot.Dialogs.Dialogs.SelectIncident
 {

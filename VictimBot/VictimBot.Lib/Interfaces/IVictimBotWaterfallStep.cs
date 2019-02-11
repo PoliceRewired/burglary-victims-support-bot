@@ -9,7 +9,5 @@ namespace VictimBot.Lib.Interfaces
     {
         Dialog Prompt { get; }
         WaterfallStep Step { get; }
-        void RegisterWith(DialogSet set);
-
     }
 }

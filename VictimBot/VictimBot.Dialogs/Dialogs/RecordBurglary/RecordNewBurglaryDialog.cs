@@ -9,12 +9,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using VictimBot.Lib.Constants;
-using VictimBot.Lib.Dialogs;
 using VictimBot.Lib.Helpers;
 using VictimBot.Lib.Interfaces;
 using VictimBot.Lib.State;
 using VictimBot.Dialogs.Dialogs.ReviewBurglary;
 using VictimBot.Lib.Storage.DTO;
+using VictimBot.Lib.WaterfallDialogs;
 
 namespace VictimBot.Dialogs.Dialogs.RecordBurglary
 {
@@ -32,61 +32,41 @@ namespace VictimBot.Dialogs.Dialogs.RecordBurglary
         }
     }
 
-    public class ConfirmIntentionStep : VictimBotWaterfallStep<ChoicePrompt>
+    public class ConfirmIntentionStep : VictimBotSimpleChoicesStep
     {
-        public static readonly string CHOICE_NewReport = RecordNewBurglaryResources.Choice_NewReport;
-        public static readonly string CHOICE_Back = RecordNewBurglaryResources.Choice_Back;
-
-        public ConfirmIntentionStep(VictimBotAccessors accessors) : base(accessors) { }
-
-        protected override ChoicePrompt CreatePrompt(string stepId)
+        public ConfirmIntentionStep(VictimBotAccessors accessors) : base(accessors)
         {
-            return new ChoicePrompt(stepId, ValidateChoice);
         }
 
-        protected async override Task<DialogTurnResult> StepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        protected async override Task<IList<Choice>> GenerateChoicesAsync()
         {
-            var actions = new List<CardAction>()
+            return new List<Choice>()
             {
-                new CardAction() { Title = CHOICE_NewReport, Type = ActionTypes.ImBack, Value = CHOICE_NewReport },
-                new CardAction() { Title = CHOICE_Back, Type = ActionTypes.ImBack, Value = CHOICE_Back },
+                new Choice(RecordNewBurglaryResources.Choice_NewReport),
+                new Choice(RecordNewBurglaryResources.Choice_Back)
             };
-
-            var message = MessageFactory.SuggestedActions(actions, RecordNewBurglaryResources.ConfirmIntention_Preamble);
-            var message_retry = MessageFactory.SuggestedActions(actions, RecordNewBurglaryResources.ConfirmIntention_Retry);
-
-            return await stepContext.PromptAsync(
-                this.GetStepId(),
-                new PromptOptions
-                {
-                    Prompt = (Activity)message,
-                    RetryPrompt = (Activity)message_retry
-                },
-                cancellationToken);
         }
 
-        protected async Task<bool> ValidateChoice(PromptValidatorContext<FoundChoice> promptContext, CancellationToken cancellationToken)
+        protected async override Task<string> GeneratePromptAsync()
         {
-            // confirm it was one of the choices available
-            var selection = promptContext.Context.Activity.Text;
-            return new[] { CHOICE_Back, CHOICE_NewReport }.Contains(selection);
+            return RecordNewBurglaryResources.ConfirmIntention_Preamble;
+        }
+
+        protected async override Task<string> GenerateRepromptAsync()
+        {
+            return RecordNewBurglaryResources.ConfirmIntention_Retry;
         }
     }
 
-    public class ParseIntentConfirmationStep : VictimBotWaterfallStep<TextPrompt>
+    public class ParseIntentConfirmationStep : VictimBotParseChoicesStep
     {
-        public ParseIntentConfirmationStep(VictimBotAccessors accessors) : base(accessors) { }
-
-        protected override TextPrompt CreatePrompt(string stepId)
+        public ParseIntentConfirmationStep(VictimBotAccessors accessors) : base(accessors)
         {
-            return null;
         }
 
-        protected async override Task<DialogTurnResult> StepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        protected async override Task<DialogTurnResult> ParseChoiceAsync(FoundChoice choice, WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            var statedChoice = stepContext.Context.Activity.Text;
-
-            if (ConfirmIntentionStep.CHOICE_NewReport == statedChoice)
+            if (RecordNewBurglaryResources.Choice_NewReport == choice.Value)
             {
                 var channelId = stepContext.Context.Activity.ChannelId;
                 var userProfile = await Accessors.UserProfile_Accessor.GetAsync(stepContext.Context,
@@ -96,7 +76,7 @@ namespace VictimBot.Dialogs.Dialogs.RecordBurglary
                 await Accessors.CurrentIncident_Accessor.SetAsync(stepContext.Context, IncidentData.NewBurglary(ownerGuid), cancellationToken);
                 return await stepContext.ReplaceDialogAsync(typeof(ReviewBurglaryDialog).CalcDialogId(), null, cancellationToken);
             }
-            else if (ConfirmIntentionStep.CHOICE_Back == statedChoice)
+            else if (RecordNewBurglaryResources.Choice_Back == choice.Value)
             {
                 return await stepContext.EndDialogAsync(cancellationToken);
             }
@@ -107,6 +87,4 @@ namespace VictimBot.Dialogs.Dialogs.RecordBurglary
             }
         }
     }
-
-
 }

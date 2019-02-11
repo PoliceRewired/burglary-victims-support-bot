@@ -7,10 +7,10 @@ using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.Dialogs.Choices;
 using Microsoft.Bot.Schema;
 using VictimBot.Dialogs.Dialogs.RecordBurglary;
-using VictimBot.Lib.Dialogs;
 using VictimBot.Lib.Helpers;
 using VictimBot.Lib.Interfaces;
 using VictimBot.Lib.State;
+using VictimBot.Lib.WaterfallDialogs;
 
 namespace VictimBot.Dialogs.Dialogs.MainChoices
 {
@@ -28,72 +28,52 @@ namespace VictimBot.Dialogs.Dialogs.MainChoices
         }
     }
 
-    public class OfferMainChoicesStep : VictimBotWaterfallStep<ChoicePrompt>
+    public class OfferMainChoicesStep : VictimBotSimpleChoicesStep
     {
-        public static readonly string CHOICE_Review = MainChoicesResources.Choice_ReviewIncidents;
-        public static readonly string CHOICE_ReportNewBurglary = MainChoicesResources.Choice_ReportBurglary;
-        public static readonly string CHOICE_UpdatePersonals = MainChoicesResources.Choice_UpdatePersonals;
-
-        public OfferMainChoicesStep(VictimBotAccessors accessors) : base(accessors) { }
-
-        protected override ChoicePrompt CreatePrompt(string stepId)
+        public OfferMainChoicesStep(VictimBotAccessors accessors) : base(accessors)
         {
-            return new ChoicePrompt(stepId, ValidateChoice);
         }
 
-        protected async override Task<DialogTurnResult> StepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        protected async override Task<IList<Choice>> GenerateChoicesAsync()
         {
-            var actions = new List<CardAction>()
+            return new List<Choice>()
             {
-                new CardAction() { Title = CHOICE_Review, Type = ActionTypes.ImBack, Value = CHOICE_Review },
-                new CardAction() { Title = CHOICE_ReportNewBurglary, Type = ActionTypes.ImBack, Value = CHOICE_ReportNewBurglary },
-                new CardAction() { Title = CHOICE_UpdatePersonals, Type = ActionTypes.ImBack, Value = CHOICE_UpdatePersonals },
+                new Choice(MainChoicesResources.Choice_ReviewIncidents),
+                new Choice(MainChoicesResources.Choice_ReportBurglary),
+                new Choice(MainChoicesResources.Choice_UpdatePersonals)
             };
-
-            var message = MessageFactory.SuggestedActions(actions, MainChoicesResources.OfferOptionsPreamble);
-            var message_retry = MessageFactory.SuggestedActions(actions, MainChoicesResources.OfferOptions_Retry);
-
-            return await stepContext.PromptAsync(
-                this.GetStepId(),
-                new PromptOptions
-                {
-                    Prompt = (Activity)message,
-                    RetryPrompt = (Activity)message_retry
-                },
-                cancellationToken);
         }
 
-        protected async Task<bool> ValidateChoice(PromptValidatorContext<FoundChoice> promptContext, CancellationToken cancellationToken)
+        protected async override Task<string> GeneratePromptAsync()
         {
-            var selection = promptContext.Context.Activity.Text;
-            return new[]{ CHOICE_Review, CHOICE_ReportNewBurglary, CHOICE_UpdatePersonals }.Contains(selection);
+            return MainChoicesResources.OfferOptionsPreamble;
+        }
+
+        protected async override Task<string> GenerateRepromptAsync()
+        {
+            return MainChoicesResources.OfferOptions_Retry;
         }
     }
 
-    public class ParseMainChoiceStep : VictimBotWaterfallStep<TextPrompt>
+    public class ParseMainChoiceStep : VictimBotParseChoicesStep
     {
-        public ParseMainChoiceStep(VictimBotAccessors accessors) : base(accessors) { }
-
-        protected override TextPrompt CreatePrompt(string stepId)
+        public ParseMainChoiceStep(VictimBotAccessors accessors) : base(accessors)
         {
-            return null;
         }
 
-        protected async override Task<DialogTurnResult> StepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        protected override async Task<DialogTurnResult> ParseChoiceAsync(FoundChoice choice, WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            var selection = stepContext.Context.Activity.Text;
-
-            if (OfferMainChoicesStep.CHOICE_Review == selection)
+            if (MainChoicesResources.Choice_ReviewIncidents == choice.Value)
             {
                 await stepContext.Context.SendActivityAsync(MessageFactory.Text(MainChoicesResources.ReviewNotImplemented), cancellationToken);
                 return await stepContext.EndDialogAsync(cancellationToken);
             }
-            else if (OfferMainChoicesStep.CHOICE_UpdatePersonals == selection)
+            else if (MainChoicesResources.Choice_UpdatePersonals == choice.Value)
             {
                 await stepContext.Context.SendActivityAsync(MessageFactory.Text(MainChoicesResources.UpdatePersonalsNotImplemented), cancellationToken);
                 return await stepContext.EndDialogAsync(cancellationToken);
             }
-            else if (OfferMainChoicesStep.CHOICE_ReportNewBurglary == selection)
+            else if (MainChoicesResources.Choice_ReportBurglary == choice.Value)
             {
                 return await stepContext.ReplaceDialogAsync(typeof(RecordNewBurglaryDialog).CalcDialogId(), null, cancellationToken);
             }

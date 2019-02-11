@@ -5,15 +5,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Dialogs;
-using VictimBot.Lib.Dialogs;
 using VictimBot.Lib.Helpers;
 using VictimBot.Lib.Interfaces;
 using VictimBot.Lib.State;
+using VictimBot.Lib.WaterfallDialogs;
 
 namespace VictimBot.Dialogs.Dialogs.PersonalDetails
 {
     /// <summary>
-    /// Responsible for learning the user's name and a good contact for them
+    /// Responsible for learning the user's name and a good contact email address for them.
     /// </summary>
     public class LearnPersonalDetailsDialog : VictimBotWaterfallDialog
     {
@@ -33,124 +33,88 @@ namespace VictimBot.Dialogs.Dialogs.PersonalDetails
         }
     }
 
-    public class SayPreambleStep : VictimBotWaterfallStep<TextPrompt>
+    public class SayPreambleStep : VictimBotSimpleTextStep
     {
         public SayPreambleStep(VictimBotAccessors accessors) : base(accessors) { }
 
-        protected override TextPrompt CreatePrompt(string stepId)
+        protected async override Task<string> GenerateTextAsync(WaterfallStepContext context, string userInput)
         {
-            return null;
-        }
-
-        protected async override Task<DialogTurnResult> StepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-        {
-            await stepContext.Context.SendActivityAsync(MessageFactory.Text(LearnPersonalDetailsResources.Preamble_Explanation), cancellationToken);
-            return await stepContext.NextAsync(cancellationToken);
+            return LearnPersonalDetailsResources.Preamble_Explanation;
         }
     }
 
-    public class AskNameStep : VictimBotWaterfallStep<TextPrompt>
+    public class AskNameStep : VictimBotRequestNameStep
     {
-        public AskNameStep(VictimBotAccessors accessors) : base(accessors) { }
-
-        protected override TextPrompt CreatePrompt(string stepId)
+        public AskNameStep(VictimBotAccessors accessors) : base(accessors)
         {
-            return new TextPrompt(stepId, ValidateName);
         }
 
-        protected async override Task<DialogTurnResult> StepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        protected async override Task<string> GeneratePromptAsync()
         {
-            return await stepContext.PromptAsync(
-                this.GetStepId(),
-                new PromptOptions {
-                    Prompt = MessageFactory.Text(LearnPersonalDetailsResources.AskForName),
-                    RetryPrompt = MessageFactory.Text($"{LearnPersonalDetailsResources.AskForName_Retry} {SharedResources.OfferToAbort}")
-                },
-                cancellationToken);
+            return LearnPersonalDetailsResources.AskForName;
         }
 
-        protected async Task<bool> ValidateName(PromptValidatorContext<string> promptContext, CancellationToken cancellationToken) => 
-            promptContext.Recognized.Succeeded &&
-            !string.IsNullOrWhiteSpace(promptContext.Recognized.Value) &&
-            promptContext.Recognized.Value.IsFullName();
+        protected async override Task<string> GenerateRepromptAsync()
+        {
+            return LearnPersonalDetailsResources.AskForName_Retry;
+        }
     }
 
-    public class ConfirmNameStep : VictimBotWaterfallStep<TextPrompt>
+    public class ConfirmNameStep : VictimBotSimpleTextStep
     {
-        public ConfirmNameStep(VictimBotAccessors accessors) : base(accessors) { }
-
-        protected override TextPrompt CreatePrompt(string stepId)
+        public ConfirmNameStep(VictimBotAccessors accessors) : base(accessors)
         {
-            return null;
         }
 
-        protected async override Task<DialogTurnResult> StepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        protected async override Task<string> GenerateTextAsync(WaterfallStepContext context, string userInput)
         {
-            var statedName = (string)stepContext.Result;
+            var userProfile = await GetCurrentUserAsync(context.Context);
+            return string.Format(LearnPersonalDetailsResources.ConfirmName, userProfile.FullName.FirstName);
+        }
 
+        protected async override Task OperateOnUserInputAsync(WaterfallStepContext stepContext, string userInput, CancellationToken cancellationToken)
+        {
             var channelId = stepContext.Context.Activity.ChannelId;
-            var userProfile = await Accessors.UserProfile_Accessor.GetAsync(stepContext.Context,
-                () => Accessors.Storage.UserProfiles.ReadOrCreateAsync(channelId).Result,
-                cancellationToken);
-            userProfile.RawName = statedName;
-
-            await stepContext.Context.SendActivityAsync(MessageFactory.Text(string.Format(LearnPersonalDetailsResources.ConfirmName, userProfile.FullName.FirstName)), cancellationToken);
-
-            return await stepContext.NextAsync(cancellationToken);
+            var userProfile = await GetCurrentUserAsync(stepContext.Context);
+            userProfile.RawName = userInput;
         }
     }
 
-    public class AskEmailStep : VictimBotWaterfallStep<TextPrompt>
+    public class AskEmailStep : VictimBotRequestEmailStep
     {
-        public AskEmailStep(VictimBotAccessors accessors) : base(accessors) { }
-
-        protected override TextPrompt CreatePrompt(string stepId)
+        public AskEmailStep(VictimBotAccessors accessors) : base(accessors)
         {
-            return new TextPrompt(stepId, ValidateEmail);
         }
 
-        protected async override Task<DialogTurnResult> StepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        protected async override Task<string> GeneratePromptAsync()
         {
-            var stepId = this.GetStepId();
-            return await stepContext.PromptAsync(
-                this.GetStepId(),
-                new PromptOptions
-                {
-                    Prompt = MessageFactory.Text(LearnPersonalDetailsResources.AskForEmailAddress),
-                    RetryPrompt = MessageFactory.Text($"{LearnPersonalDetailsResources.AskForEmailAddress_Retry} {SharedResources.OfferToAbort}")
-                },
-                cancellationToken);
+            return LearnPersonalDetailsResources.AskForEmailAddress;
         }
 
-        protected async Task<bool> ValidateEmail(PromptValidatorContext<string> promptContext, CancellationToken cancellationToken) => promptContext.Recognized.Succeeded && promptContext.Recognized.Value.IsEmailAddress();
+        protected async override Task<string> GenerateRepromptAsync()
+        {
+            return LearnPersonalDetailsResources.AskForEmailAddress_Retry;
+        }
     }
 
-    public class ConfirmEmailStep : VictimBotWaterfallStep<TextPrompt>
+    public class ConfirmEmailStep : VictimBotSimpleTextStep
     {
-        public ConfirmEmailStep(VictimBotAccessors accessors) : base(accessors) { }
-
-        protected override TextPrompt CreatePrompt(string stepId)
+        public ConfirmEmailStep(VictimBotAccessors accessors) : base(accessors)
         {
-            return null;
         }
 
-        protected async override Task<DialogTurnResult> StepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+        protected async override Task<string> GenerateTextAsync(WaterfallStepContext context, string userInput)
         {
-            var statedEmail = (string)stepContext.Result;
-            await stepContext.Context.SendActivityAsync(MessageFactory.Text(string.Format(LearnPersonalDetailsResources.ConfirmEmail, statedEmail)), cancellationToken);
+            return string.Format(LearnPersonalDetailsResources.ConfirmEmail, userInput);
+        }
 
+        protected async override Task OperateOnUserInputAsync(WaterfallStepContext stepContext, string userInput, CancellationToken cancellationToken)
+        {
             var channelId = stepContext.Context.Activity.ChannelId;
-            var userProfile = await Accessors.UserProfile_Accessor.GetAsync(stepContext.Context,
-                () => Accessors.Storage.UserProfiles.ReadOrCreateAsync(channelId).Result,
-                cancellationToken);
+            var userProfile = await GetCurrentUserAsync(stepContext.Context);
 
-            userProfile.Email = statedEmail;
-
+            userProfile.Email = userInput;
             await Accessors.Storage.UserProfiles.WriteAsync(userProfile);
-
-            // end of sequence
-            return await stepContext.EndDialogAsync(cancellationToken);
         }
     }
-
 }

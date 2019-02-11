@@ -43,7 +43,16 @@ namespace VictimBot.Lib.Storage.DTO
                 Type = IncidentType.Burglary,
                 ReportStarted = DateTime.Now
             };
+        }
 
+        public static IncidentData NewUnspecified(Guid owner)
+        {
+            return new IncidentData()
+            {
+                OwnerGuid = owner,
+                Type = IncidentType.Unspecified,
+                ReportStarted = DateTime.Now
+            };
         }
     }
 }

@@ -7,7 +7,7 @@ using VictimBot.Lib.Interfaces;
 using VictimBot.Lib.Helpers;
 using VictimBot.Lib.State;
 
-namespace VictimBot.Lib.Dialogs
+namespace VictimBot.Lib.WaterfallDialogs
 {
     public abstract class VictimBotWaterfallDialog : IVictimBotDialog
     {

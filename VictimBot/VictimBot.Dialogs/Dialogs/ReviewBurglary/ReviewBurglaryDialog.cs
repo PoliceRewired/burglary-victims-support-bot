@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using VictimBot.Dialogs.Summaries;
-using VictimBot.Lib.Dialogs;
 using VictimBot.Lib.Interfaces;
 using VictimBot.Lib.State;
+using VictimBot.Lib.WaterfallDialogs;
 
 namespace VictimBot.Dialogs.Dialogs.ReviewBurglary
 {
@@ -27,22 +27,16 @@ namespace VictimBot.Dialogs.Dialogs.ReviewBurglary
         }
     }
 
-    public class DisplayCurrentStateStep : VictimBotWaterfallStep<ChoicePrompt>
+    public class DisplayCurrentStateStep : VictimBotSimpleTextStep
     {
         public DisplayCurrentStateStep(VictimBotAccessors accessors) : base(accessors)
         {
         }
 
-        protected override ChoicePrompt CreatePrompt(string stepId)
+        protected override async Task<string> GenerateTextAsync(WaterfallStepContext context, string userInput)
         {
-            return null;
-        }
-
-        protected async override Task<DialogTurnResult> StepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-        {
-            var incident = await Accessors.CurrentIncident_Accessor.GetAsync(stepContext.Context, () => throw new NullReferenceException("Incident cannot be null."), cancellationToken);
-            await stepContext.Context.SendActivityAsync(MessageFactory.Text(incident.Summarise()), cancellationToken);
-            return await stepContext.NextAsync(cancellationToken);
+            var incident = await GetCurrentIncidentAsync(context.Context, true);
+            return incident.Summarise();
         }
     }
 
