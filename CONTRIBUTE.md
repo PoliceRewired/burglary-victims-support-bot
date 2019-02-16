@@ -10,7 +10,7 @@ If you'd like to find out a little more about what we're hoping to achieve, take
 
 Read on below to find out more about how to load up the code, and make a contribution to the project...
 
-<img src="https://github.com/PoliceRewired/burglary-victims-support-bot/raw/master/images/bot-in-emulator.png" width="400" title="A conversation with our Bot" />
+<img src="https://github.com/PoliceRewired/burglary-victims-support-bot/raw/master/images/2019-02-01 bot in emulator.png" width="400" title="A conversation with our Bot" />
 
 ## Technologies
 
@@ -23,14 +23,15 @@ Download and install:
 * A community edition of Visual Studio
 * The MS Bot Framework Emulator
 
-Then simply clone this repository and open VictimBot.sln in Visual Studio.
+If you're planning to work on the project, make a fork of it to work on, and clone that. If not, just clone the repository directly.
 
+* Open VictimBot.sln in Visual Studio.
 * Hit f5 to start the (local) bot service.
 * Fire up the emulator.
 * Open the VictimBot.bot file with the emulator to connect.
 * Chat away!
 
-<img src="https://github.com/PoliceRewired/burglary-victims-support-bot/raw/master/images/bot-running.png" width="400" title="A conversation with our Bot" />
+<img src="https://github.com/PoliceRewired/burglary-victims-support-bot/raw/master/images/2019-02-01 bot running.png" width="400" title="A conversation with our Bot" />
 
 ## Project structure
 
@@ -41,7 +42,7 @@ The solution is divided into 3 projects:
 
 ## Contributing
 
-If you'd like to make a contribution to this project, take a look at the currently outstanding [issues](https://github.com/PoliceRewired/burglary-victims-support-bot/issues). If you see one you'd like to pick off, contact the team by commenting on it, and plan it with us.
+If you'd like to make a contribution to this project, take a look at the currently outstanding [issues](https://github.com/PoliceRewired/burglary-victims-support-bot/issues). **(TODO: these will be added soon as part of phase 1.)** If you see one you'd like to pick off, contact the team by commenting on it, and plan it with us.
 
 If you're in London, check to see if there's a [meetup](https://policerewired.org) you can come along to.
 
