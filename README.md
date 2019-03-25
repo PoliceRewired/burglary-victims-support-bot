@@ -1,5 +1,7 @@
 # Burglary Victims' Support Bot
 
+[![Follow PoliceRewired](https://img.shields.io/twitter/follow/policerewired.svg?style=social&label=Follow%20Police%20Rewired)](https://twitter.com/policerewired)
+
 A conversational tool to help the victims of burglary.
 
 This is an open source project, led by volunteers.
